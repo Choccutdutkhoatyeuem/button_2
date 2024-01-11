@@ -19,6 +19,33 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  String _displayText = 'Waiting...';
+  Color _button1Color = Colors.yellow;
+  Color _button2Color = Colors.yellow;
+  Color _button3Color = Colors.yellow;
+  Color _button4Color = Colors.yellow;
+
+  void _onButtonPressed(int buttonNumber) {
+    setState(() {
+      _displayText = buttonNumber == 2 ? 'True' : 'False';
+
+      _button1Color = buttonNumber == 1 ? Colors.red : Colors.yellow;
+      _button2Color = buttonNumber == 2 ? Colors.blue : Colors.yellow;
+      _button3Color = buttonNumber == 3 ? Colors.red : Colors.yellow;
+      _button4Color = buttonNumber == 4 ? Colors.red : Colors.yellow;
+    });
+    Future.delayed(Duration(seconds: 1), () {
+     setState(() {
+      _displayText ='Waiting...';
+      _button1Color = Colors.yellow;
+      _button2Color = Colors.yellow;
+      _button3Color = Colors.yellow;
+      _button4Color = Colors.yellow;
+
+     });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,46 +53,61 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            MyButton(),
+            Text(
+              _displayText,
+              style: TextStyle(fontSize: 18),
+            ),
             const SizedBox(height: 20),
-            MyButton(),
+            ElevatedButton(
+              onPressed: () => _onButtonPressed(1),
+              style: ElevatedButton.styleFrom(
+                primary: _button1Color,
+                padding: const EdgeInsets.all(20),
+              ),
+              
+              child: const Text(
+                'Click Me!',
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () => _onButtonPressed(2),
+              style: ElevatedButton.styleFrom(
+                primary: _button2Color,
+                padding: const EdgeInsets.all(20),
+              ),
+              child: const Text(
+                'Click Me!',
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () => _onButtonPressed(3),
+              style: ElevatedButton.styleFrom(
+                primary: _button3Color,
+                padding: const EdgeInsets.all(20),
+              ),
+              child: const Text(
+                'Click Me!',
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () => _onButtonPressed(4),
+              style: ElevatedButton.styleFrom(
+                primary: _button4Color,
+                padding: const EdgeInsets.all(20),
+              ),
+              child: const Text(
+                'Click Me!',
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class MyButton extends StatefulWidget {
-  @override
-  _MyButtonState createState() => _MyButtonState();
-}
-
-class _MyButtonState extends State<MyButton> {
-  Color _buttonColor = Colors.blue;
-
-  void _changedColor() {
-    setState(() {
-      _buttonColor = Colors.grey;
-    });
-    Future.delayed( Duration(seconds: 1), () {
-        setState(() {
-          _buttonColor = Colors.blue;
-        });
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: _changedColor,
-      style: ElevatedButton.styleFrom(
-        primary: _buttonColor,
-        padding: const EdgeInsets.all(20),
-      ),
-      child: const Text(
-        'Touch me',
-        style: TextStyle(color: Colors.white),
       ),
     );
   }
