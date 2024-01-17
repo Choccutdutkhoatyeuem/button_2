@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     });
                   },
                   onReset: () {
-                    Future.delayed(const Duration(seconds: 1), () {
+                    Future.delayed(const Duration(seconds: 0), () {
                       setState(() {
                         waitingText = "Waiting...";
                       });
@@ -74,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     });
                   },
                   onReset: () {
-                    Future.delayed(const Duration(seconds: 1), () {
+                    Future.delayed(const Duration(seconds: 0), () {
                       setState(() {
                         waitingText = "Waiting...";
                       });
@@ -93,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     });
                   },                 
                   onReset: () {
-                    Future.delayed(const Duration(seconds: 1), () {
+                    Future.delayed(const Duration(seconds: 0), () {
                       setState(() {
                         waitingText = "Waiting...";
                       });
@@ -113,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     });
                   },
                   onReset: () {
-                    Future.delayed(const Duration(seconds: 1), () {
+                    Future.delayed(const Duration(seconds: 0), () {
                       setState(() {
                         waitingText = "Waiting...";
                       });

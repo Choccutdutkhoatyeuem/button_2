@@ -43,7 +43,7 @@ class _CustomButtonState extends State<CustomButton> {
         });
         widget.onTap(isCorrect);
 
-        Future.delayed(const Duration(seconds: 2), () {
+        Future.delayed(const Duration(seconds: 1), () {
           setState(() {
             isCorrect = false;
           });
