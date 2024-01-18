@@ -16,7 +16,7 @@ class MyButton extends StatelessWidget {
 
 class CustomButton extends StatefulWidget {
   final String content;
-  final Function(bool) onTap;
+  final Function(String) onTap;
   final VoidCallback onReset;
   final Color buttonColor;
 
@@ -32,20 +32,20 @@ class CustomButton extends StatefulWidget {
 }
 
 class _CustomButtonState extends State<CustomButton> {
-  bool isCorrect = false;
+  bool isCorrect = true;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         setState(() {
-          isCorrect = true;
+          isCorrect = false;
         });
-        widget.onTap(isCorrect);
+        widget.onTap(isCorrect.toString());
 
         Future.delayed(const Duration(seconds: 1), () {
           setState(() {
-            isCorrect = false;
+            isCorrect = true;
           });
           widget.onReset();
         });
@@ -54,7 +54,7 @@ class _CustomButtonState extends State<CustomButton> {
         width: 200,
         height: 50,
         decoration: BoxDecoration(
-          color: isCorrect ? widget.buttonColor : Colors.yellow,
+          color: isCorrect ?  Colors.yellow : widget.buttonColor,
           borderRadius: BorderRadius.circular(8.0),
         ),
         child: Center(

@@ -21,8 +21,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   String waitingText = "Waiting...";
-   Color buttonColor = Colors.yellow;
-
 
   @override
   Widget build(BuildContext context) {
@@ -50,15 +48,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   content: "Click Me!",
                   onTap: (isCorrect) {
                     setState(() {
-                      waitingText = isCorrect ? "Correct" : "InCorrect";
+                      waitingText = isCorrect.isEmpty ? "InCorrect" : "Correct";
                     });
                   },
                   onReset: () {
-                    Future.delayed(const Duration(seconds: 0), () {
                       setState(() {
                         waitingText = "Waiting...";
                       });
-                    });
                   },
                 ),
 
@@ -69,16 +65,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   content: "Click Me!",
                   onTap: (isCorrect) {
                     setState(() {
-                      waitingText = isCorrect ? "InCorrect" : "Correct";
+                      waitingText = isCorrect.isEmpty ? "Correct" : "InCorrect";
 
                     });
                   },
                   onReset: () {
-                    Future.delayed(const Duration(seconds: 0), () {
+                    
                       setState(() {
                         waitingText = "Waiting...";
                       });
-                    });
+                    
                   },
                 ),
 
@@ -89,15 +85,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   content: "Click Me!",
                   onTap: (isCorrect) {
                     setState(() {
-                      waitingText = isCorrect ? "InCorrect" : "Correct";
+                      waitingText = isCorrect.isEmpty ? "Correct" : "InCorrect";
                     });
                   },                 
                   onReset: () {
-                    Future.delayed(const Duration(seconds: 0), () {
+                    
                       setState(() {
                         waitingText = "Waiting...";
                       });
-                    });
                   },
                 ),
 
@@ -108,15 +103,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   content: "Click Me!",
                   onTap: (isCorrect) {
                     setState(() {
-                      waitingText = isCorrect ? "InCorrect" : "Correct";
-                      
+                      waitingText = isCorrect.isEmpty ? "Correct" : "InCorrect";
                     });
                   },
                   onReset: () {
-                    Future.delayed(const Duration(seconds: 0), () {
                       setState(() {
                         waitingText = "Waiting...";
-                      });
                     });
                   },
                 ),
